@@ -1,0 +1,84 @@
+\ProvidesPackage{epfl_titlepage}[2017/03/14 v.01 nice latex EPFL titlepage]
+\RequirePackage{graphicx}
+\newcommand*{\project}[1]{\gdef\@project{#1}%
+}
+\newcommand*{\@project}{Final Year Project}
+\newcommand*{\professor}[1]{\gdef\@professor{#1}%
+}
+\newcommand*{\@professor}{\texttt{\string\professor} currently
+not set. Please fix this.}
+
+\newcommand*{\supervisor}[1]{\gdef\@supervisor{#1}%
+}
+\newcommand*{\@supervisor}{\texttt{\string\supervisor} currently
+not set. Please fix this.}
+
+\newif\if@master\@masterfalse
+\DeclareOption{master}{
+  \@mastertrue
+}
+
+\newif\if@candidacy\@candidacyfalse
+\DeclareOption{candidacy}{
+  \@candidacytrue
+}
+
+\ProcessOptions\relax
+
+\if@candidacy
+\renewcommand*{\maketitle}{%
+\begin{titlepage}
+{\raggedleft%
+	\includegraphics[width=3cm]{epfl}\par
+}\vspace{1cm}
+	\centering
+{\scshape\LARGE École polytechnique fédérale de Lausanne \par}
+\vspace{1cm}
+{\scshape\Large\@project\unskip\strut\par}
+\vspace{1.5cm}
+{\huge\bfseries\@title\unskip\strut\par}
+\vspace{2cm}
+{\Large\itshape\@author\unskip\strut\par}
+\vfill
+supervised by\par
+\@professor\unskip\strut\par
+
+\vfill
+
+{\large \@date\par}
+\end{titlepage}
+}
+\fi
+
+\if@master
+\renewcommand*{\maketitle}{%
+\begin{titlepage}
+  \centering
+  {\huge\bfseries\@title\unskip\strut\par} 
+  \vspace{36pt}
+
+{\scshape\large École polytechnique fédérale de Lausanne}\\
+{\scshape\large School of Engineering}\\
+{\scshape\large Institute of Mechanical Engineering}\\
+{\scshape\large Laboratory of Applied Mechanical Design \par}
+
+\vfill
+{\scshape\Large\@project\unskip\strut\par}
+By\\
+{\Large\itshape\@author\unskip\strut\par}
+\vfill
+Supervisors\\
+\@professor\unskip\strut\\
+\@supervisor\unskip\strut\par
+
+\vfill
+
+\includegraphics[width=5cm]{images/epfl}\\[0.5cm]
+
+Switzerland\\
+{\@date\par}
+\end{titlepage}
+}
+\fi
+
+\endinput
