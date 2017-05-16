@@ -3,6 +3,9 @@
 Simple title pages for latex documents with "EPFL style"
 
 ## Usage
+
+Start by copying the package file `epfl_titlepage.sty` in your LaTeX project folder and make sure the EPFL logo (named `epfl`) is available in your graphic search path.
+
 ```latex
 % in the preamble
 \usepackage[style]{epfl_titlepage}
