@@ -1,4 +1,4 @@
-\ProvidesPackage{epfl_titlepage}[2017/03/14 v.01 nice latex EPFL titlepage]
+\ProvidesPackage{epfl_titlepage}[2017/05/16 v.02 nice latex EPFL titlepage]
 \RequirePackage{graphicx}
 \newcommand*{\project}[1]{\gdef\@project{#1}%
 }
@@ -28,11 +28,21 @@ not set. Please fix this.}
 \if@candidacy
 \renewcommand*{\maketitle}{%
 \begin{titlepage}
-{\raggedleft%
-	\includegraphics[width=3cm]{epfl}\par
-}\vspace{1cm}
-	\centering
-{\scshape\LARGE École polytechnique fédérale de Lausanne \par}
+\noindent
+\begin{minipage}[c]{0.65\linewidth}
+{\scshape École polytechnique fédérale de Lausanne\par}
+\vspace{0.3cm}
+{\scshape EDEY doctoral program}
+\end{minipage}%
+\hspace{0.05\linewidth}%
+\begin{minipage}[c]{0.3\linewidth}
+\includegraphics[width=\textwidth]{epfl}
+\end{minipage}
+
+\centering
+\vspace{0.4cm}
+\noindent\rule{\textwidth}{1pt}
+
 \vspace{1cm}
 {\scshape\Large\@project\unskip\strut\par}
 \vspace{1.5cm}
@@ -54,7 +64,7 @@ supervised by\par
 \renewcommand*{\maketitle}{%
 \begin{titlepage}
   \centering
-  {\huge\bfseries\@title\unskip\strut\par} 
+  {\huge\bfseries\@title\unskip\strut\par}
   \vspace{36pt}
 
 {\scshape\large École polytechnique fédérale de Lausanne}\\
